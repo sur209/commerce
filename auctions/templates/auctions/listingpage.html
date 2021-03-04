@@ -1,0 +1,18 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>{{ item.auction }}</h2>
+
+    <tr>
+		<td>Descripción: {{ item.description }}</td><br>
+		<td>Oferta: {{ item.oferta }}</td><br>
+		<td>Categoría: {{ item.categoria }}</td><br>
+
+		{% if seguimiento is True %}
+		<a href="{% url 'watchlist' item.id %}">Desagregar item de mi lista de seguimiento</a>
+		{% else %}
+		<a href="{% url 'watchlist' item.id %}">Agregar item a mi lista de seguimiento</a>
+		{% endif %}
+
+
+{% endblock %}
